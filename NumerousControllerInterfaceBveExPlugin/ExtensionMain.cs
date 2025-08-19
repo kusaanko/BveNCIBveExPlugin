@@ -53,7 +53,7 @@ namespace Kusaanko.Bvets.NumerousControllerInterface.BveExPlugin
             }
             if (IsLoaded)
             {
-                // NumerousController側にAtsExPluginの起動完了を通知
+                // NumerousController側にBveExPluginの起動完了を通知
                 Invoke("SetVersion", Assembly.GetExecutingAssembly().GetName().Version);
 
                 // 取得可能な値を列挙
@@ -131,7 +131,7 @@ namespace Kusaanko.Bvets.NumerousControllerInterface.BveExPlugin
             Methods = new Dictionary<string, FastMethod>();
             foreach (var name in methodNames)
             {
-                MethodInfo method = NumerousControllerInterfaceType.GetMethod("AtsExPlugin" + name);
+                MethodInfo method = NumerousControllerInterfaceType.GetMethod("BveExPlugin" + name);
                 if (method != null)
                 {
                     Methods.Add(name, FastMethod.Create(method));
