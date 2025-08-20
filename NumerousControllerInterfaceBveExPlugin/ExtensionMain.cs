@@ -248,8 +248,20 @@ namespace Kusaanko.Bvets.NumerousControllerInterface.BveExPlugin
             }
             else
             {
+                if (!RetrievableValuesFromKey.ContainsKey(key))
+                {
+                    return null;
+                }
                 PropertyInfo info = RetrievableValuesFromKey[key];
+                if (!RetrievableValues.ContainsKey(key))
+                {
+                    return null;
+                }
                 PropertyInfo instanceInfo = RetrievableValues[key];
+                if (instanceInfo == null)
+                {
+                    return null;
+                }
                 object instance = GetInstance(info, instanceInfo);
                 if (instance == null)
                 {
